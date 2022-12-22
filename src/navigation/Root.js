@@ -16,12 +16,14 @@ const DummyScreen = (props) => (
 
 const RootNavigator = (props) => {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator drawerContent={
+    <NavigationContainer >
+      <Drawer.Navigator  drawerContent={
         (props) => (
           <CustomDrawer {...props} />)
-      }>
-        <Drawer.Screen name="Home" component={HomeNavigator} />
+      }
+      
+      >
+        <Drawer.Screen options={{headerShown: true}} name="Home" component={HomeNavigator} />
 
         <Drawer.Screen name="Your Trips">
            {() => <DummyScreen name={"Your Trips"} />}
