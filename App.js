@@ -15,15 +15,15 @@ import Geolocation from '@react-native-community/geolocation';
 // import SearchResults from './src/screens/SearchResults';
 // import 'react-native-gesture-handler';
 import Router from './src/navigation/Root';
-// import { withAuthenticator } from 'aws-amplify-react-native';
 navigator.geolocation = require('@react-native-community/geolocation');
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-// import {Amplify,Auth } from 'aws-amplify';
-// import awsconfig from './src/aws-exports';
+* LTI update could not be added via codemod */
+import {Amplify,Auth } from 'aws-amplify';
+import awsconfig from './src/aws-exports';
+import { withAuthenticator } from 'aws-amplify-react-native';
 
-// Amplify.configure(awsconfig);
-// Auth.configure(awsconfig);
+Amplify.configure(awsconfig);
+Auth.configure(awsconfig);
 
 const App: () => Node = () => {
   const androidPermissions = async () => {
@@ -69,4 +69,4 @@ const App: () => Node = () => {
   );
 };
 
-export default App;
+export default withAuthenticator(App);
